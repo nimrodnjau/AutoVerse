@@ -39,6 +39,10 @@ app.register_blueprint(cars_bp, url_prefix='/api/cars')
 app.register_blueprint(orders_bp, url_prefix='/api/orders')
 app.register_blueprint(payments_bp, url_prefix='/api/payments')
 
+@app.route("/")
+def home():
+    return "🚀 Autoverse API is running"
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
