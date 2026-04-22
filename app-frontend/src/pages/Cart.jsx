@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer.jsx";
 
 const fmt = (n) => "KES " + Math.round(n).toLocaleString();
 

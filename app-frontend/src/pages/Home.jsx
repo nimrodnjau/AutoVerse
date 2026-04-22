@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/fetch.jsx";
-import CarCard from "../components/CarCard";
-import Footer from "../components/Footer";
-import Spinner from "../components/Spinner";
+import CarCard from "../components/CarCard.jsx";
+import Footer from "../components/Footer.jsx";
+import Spinner from "../components/Spinner.jsx";
 
 export default function Home() {
   const [featured, setFeatured] = useState([]);

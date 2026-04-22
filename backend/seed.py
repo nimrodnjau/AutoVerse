@@ -1,5 +1,6 @@
 from app import app
-from models import db, Car
+from models import db, Car, User
+from werkzeug.security import generate_password_hash
 
 CARS = [
     {'brand':'Toyota','name':'Land Cruiser V8','year':2022,'price':8500000,'category':'suv','mileage':'12,400','fuel_type':'Diesel','engine':'4.5L V8','power':'309hp','color':'Pearl White','badge':'hot','emoji':'🚙','description':'The iconic Land Cruiser V8 — unmatched off-road capability with supreme comfort. Full-time 4WD, heated leather seats, panoramic sunroof. Nairobi-inspected, clean logbook.'},
@@ -18,6 +19,8 @@ CARS = [
 
 with app.app_context():
     db.create_all()
+
+    # Seed Cars
     if Car.query.count() == 0:
         for c in CARS:
             db.session.add(Car(**c))
@@ -25,3 +28,19 @@ with app.app_context():
         print(f'Seeded {len(CARS)} cars.')
     else:
         print('Cars already seeded.')
+    
+    # Seed admin user
+    if not User.query.filter_by(email='admin@autoverse.co.ke').first():
+        admin = User(
+            first_name='Admin',
+            last_name='AutoVerse',
+            email='admin@autoverse.co.ke',
+            phone='0700000000',
+            password_hash=generate_password_hash('admin123'),
+            is_admin=True
+        )
+        db.session.add(admin)
+        db.session.commit()
+        print('Admin user created.')
+    else:
+        print('Admin already exists.')

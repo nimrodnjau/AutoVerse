@@ -11,6 +11,7 @@ class User(db.Model):
     email = db.Column(db.String(200), unique=True, nullable=False)
     password_hash = db.Column(db.String(256), nullable=False)
     phone = db.Column(db.String(20))
+    is_admin = db.Column(db.Boolean, default=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     orders = db.relationship('Order', backref='user', lazy=True)
 
@@ -21,6 +22,7 @@ class User(db.Model):
             'last_name': self.last_name,
             'email': self.email,
             'phone': self.phone,
+            'is_admin': self.is_admin,
             'created_at': self.created_at.isoformat()
         }
 

@@ -2,18 +2,19 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import { CartProvider } from "./context/CartContext.jsx";
-import Navbar from "./components/Navbar";
-import Toast from "./components/Toast";
-import ProtectedRoute from "./components/ProtectedRoute";
-import Home from "./pages/Home";
-import Catalog from "./pages/Catalog";
-import CarDetail from "./pages/CarDetail";
-import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout";
-import OrderSuccess from "./pages/OrderSuccess";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Orders from "./pages/Orders";
+import Navbar from "./components/Navbar.jsx";
+import Admin from "./pages/Admin.jsx";
+import Toast from "./components/Toast.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import Home from "./pages/Home.jsx";
+import Catalog from "./pages/Catalog.jsx";
+import CarDetail from "./pages/CarDetail.jsx";
+import Cart from "./pages/Cart.jsx";
+import Checkout from "./pages/Checkout.jsx";
+import OrderSuccess from "./pages/OrderSuccess.jsx";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
+import Orders from "./pages/Orders.jsx";
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
             <Route path="/checkout" element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
             <Route path="/order-success" element={<ProtectedRoute><OrderSuccess /></ProtectedRoute>} />
             <Route path="/orders" element={<ProtectedRoute><Orders /></ProtectedRoute>} />
+            <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
           </Routes>
         </CartProvider>
       </AuthProvider>

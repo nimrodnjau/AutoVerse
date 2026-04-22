@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
 import { useCart } from "../context/CartContext.jsx";
 import { api } from "../api/fetch.jsx";
-import Footer from "../components/Footer";
-import Spinner from "../components/Spinner";
+import Footer from "../components/Footer.jsx";
+import Spinner from "../components/Spinner.jsx";
 
 const fmt = (n) => "KES " + Math.round(n).toLocaleString();
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../api/fetch.jsx";
-import Footer from "../components/Footer";
-import Spinner from "../components/Spinner";
+import Footer from "../components/Footer.jsx";
+import Spinner from "../components/Spinner.jsx";
 
 const fmt = (n) => "KES " + Math.round(n).toLocaleString();
 

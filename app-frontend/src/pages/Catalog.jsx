@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 import { api } from "../api/fetch.jsx";
-import CarCard from "../components/CarCard";
-import Footer from "../components/Footer";
-import Spinner from "../components/Spinner";
+import CarCard from "../components/CarCard.jsx";
+import Footer from "../components/Footer.jsx";
+import Spinner from "../components/Spinner.jsx";
 
 const CATS = ["all", "sedan", "suv", "luxury", "sport", "pickup"];
 

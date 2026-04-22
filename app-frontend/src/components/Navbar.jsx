@@ -24,6 +24,13 @@ export default function Navbar() {
             </li>
           )
         )}
+        {user?.is_admin && (
+          <li>
+            <Link to="/admin" className="text-brand-gold text-xs tracking-widest uppercase hover:text-white transition-colors">
+              ⚙ Admin
+            </Link>
+          </li>
+        )}
       </ul>
 
       <div className="flex items-center gap-3">
