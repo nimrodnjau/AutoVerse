@@ -80,13 +80,13 @@ export default function Checkout() {
           setStep("details");
         }
       } catch {}
-      if (attempts >= 12) {
+      if (attempts >= 24) {  // was 12 — now 2 minutes total
         clearInterval(interval);
         setPolling(false);
         setError("Payment timed out. Check your M-Pesa and try again.");
         setStep("details");
       }
-    }, 5000);
+    }, 5000); // poll every 5 seconds
   };
 
   const STEPS = ["Cart", "Details", "Payment", "Confirm"];
