@@ -22,11 +22,7 @@ app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY', 'dev-jwt-secret')
 
 db.init_app(app)
 jwt = JWTManager(app)
-CORS(app, origins=[
-    'http://localhost:5173',
-    'http://127.0.0.1:5173',
-    'https://autoverse-roan.vercel.app',
-])
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 from routes.auth import auth_bp
 from routes.cars import cars_bp
